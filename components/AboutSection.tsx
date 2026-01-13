@@ -7,17 +7,17 @@ export default function AboutSection() {
           {/* Left Column - Text Content */}
           <div className="space-y-6 order-2 lg:order-1">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
-              Hey There, I'm <span className="text-primary-teal">Angel</span>
+              Hi, I'm <span className="text-primary-teal">Angel</span>
             </h1>
             <p className="text-lg text-gray-600">
-              angel.ancheta@example.com
+              anchetadev@gmail.com
             </p>
             <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed">
-              I design beautifully simple things, And I love what I do.
+              If it's a challenge, I'm in.
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
               <div>
-                <span className="text-5xl sm:text-6xl font-bold text-primary-teal">10</span>
+                <span className="text-5xl sm:text-6xl font-bold text-primary-teal">8</span>
                 <p className="text-sm text-gray-600 uppercase tracking-wide mt-2">Years Experience</p>
               </div>
               <div className="flex items-center gap-3 bg-gray-100 rounded-lg p-4">
@@ -26,7 +26,7 @@ export default function AboutSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <p className="text-sm text-gray-700">IDF Certified Professional<br />UI/UX Designer</p>
+                <p className="text-sm text-gray-700">Tech + Education<br />Education focused Technologist</p>
               </div>
             </div>
           </div>
@@ -50,10 +50,10 @@ export default function AboutSection() {
       {/* What do I help Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 bg-gray-50">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-12">
-          What do I help?
+          What I like Working On
         </h2>
         <p className="text-gray-600 text-lg mb-8 max-w-3xl">
-          I will help you with finding a solution and solve your problems. We use process design to create digital products. Besides that, I also help their business.
+          I enjoy a challenge - especially ones people think are "impossible". I have a "roll-up-my-sleeves" attitude to get things done!
         </p>
 
         {/* Services Grid */}
@@ -109,17 +109,16 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="bg-primary-teal rounded-2xl p-8 lg:p-12 text-white">
           <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-8 max-w-4xl">
-            My mission is to assist startups and enterprises in creating an emotional bond between their products and satisfied, engaged customers.
+            My mission is to help teams optimize.  
           </p>
           
           {/* Client Logos Placeholder */}
           <div className="flex flex-wrap items-center gap-6 lg:gap-8 opacity-90">
-            <div className="text-xl font-semibold">Jeep</div>
-            <div className="text-xl font-semibold">Amazon</div>
-            <div className="text-xl font-semibold">Bitcoin</div>
-            <div className="text-xl font-semibold">HubSpot</div>
-            <div className="text-xl font-semibold">Stripe</div>
-            <div className="text-xl font-semibold">Google</div>
+            <div className="text-xl font-semibold">Customer Education</div>
+            <div className="text-xl font-semibold">Customer Success</div>
+            <div className="text-xl font-semibold">Onboarding</div>
+            <div className="text-xl font-semibold">Data Analysis</div>
+            <div className="text-xl font-semibold">Operations</div>
           </div>
         </div>
 
