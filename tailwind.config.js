@@ -35,6 +35,20 @@ module.exports = {
         'primary-teal': '#000000',
         'primary-orange': '#B80000',
       },
+      keyframes: {
+        grow: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        shrink: {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(0.95)', opacity: '0' },
+        },
+      },
+      animation: {
+        grow: 'grow 0.3s ease-out forwards',
+        shrink: 'shrink 0.3s ease-out forwards',
+      },
     },
   },
   plugins: [],
