@@ -32,8 +32,8 @@ module.exports = {
           900: '#000000',
         },
         // Keep old names for compatibility during transition
-        'primary-teal': '#000000',
-        'primary-orange': '#B80000',
+        'primary-black': '#000000',
+        'primary-red': '#B80000',
       },
       keyframes: {
         grow: {

@@ -47,63 +47,6 @@ export default function AboutSection() {
         </div>
       </div>
 
-      {/* What do I help Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 bg-gray-50">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-12">
-          What I like Working On
-        </h2>
-        <p className="text-gray-600 text-lg mb-8 max-w-3xl">
-          I enjoy a challenge - especially ones people think are "impossible". I have a "roll-up-my-sleeves" attitude to get things done!
-        </p>
-
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
-          {/* Website Design */}
-          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow">
-            <div className="w-16 h-16 bg-primary-teal rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Website Design</h3>
-            <p className="text-2xl font-bold text-gray-700 mb-1">76 Projects</p>
-          </div>
-
-          {/* Mobile App Design */}
-          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow">
-            <div className="w-16 h-16 bg-primary-orange rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Mobile App Design</h3>
-            <p className="text-2xl font-bold text-gray-700 mb-1">63 Projects</p>
-          </div>
-
-          {/* Brand Identity */}
-          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow">
-            <div className="w-16 h-16 bg-red-500 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Brand Identity</h3>
-            <p className="text-2xl font-bold text-gray-700 mb-1">47 Projects</p>
-          </div>
-        </div>
-
-        {/* Statistics */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg">
-            <p className="text-4xl lg:text-5xl font-bold text-primary-teal mb-2">285+</p>
-            <p className="text-gray-600 text-lg">Project Completed</p>
-          </div>
-          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg">
-            <p className="text-4xl lg:text-5xl font-bold text-primary-orange mb-2">190+</p>
-            <p className="text-gray-600 text-lg">Happy Clients</p>
-          </div>
-        </div>
-      </div>
 
       {/* Mission Statement Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">

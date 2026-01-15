@@ -18,7 +18,7 @@ interface WorkCategory {
 
 export default function WorkSection() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-  const [flippedHighlights, setFlippedHighlights] = useState<Set<string>>(new Set())
+  const [hoveredHighlights, setHoveredHighlights] = useState<Set<string>>(new Set())
   const [isClosing, setIsClosing] = useState(false)
 
   const workCategories: WorkCategory[] = [
@@ -56,31 +56,31 @@ export default function WorkSection() {
     {
       id: 'customer-success',
       name: 'Customer Success',
-      introText: 'Changing consumer behavior is the key to sticky adoptions. ',
+      introText: 'Changing consumer behavior is the key to sticky adoptions. If learning = changed behavior, then the fastest way to unlocking this key is through customer education and partnership.',
       highlights: [
         {
           id: 'cat2-highlight-1',
-          title: 'Project A',
-          frontText: 'Project A',
-          backText: 'Detailed description of Project A.',
+          title: 'Data-driven Decision Maker',
+          frontText: 'Data-driven Decision Maker',
+          backText: `Using pivot tables and raw data representing one year's worth of selling across 200 adoptions, I developed a priority strategy informing which accounts deserved the most white-glove service. One key insight was that a single adoption accounted for 10% of our region's entire business.`,
         },
         {
           id: 'cat2-highlight-2',
-          title: 'Project B',
-          frontText: 'Project B',
-          backText: 'Detailed description of Project B.',
+          title: 'Team Player',
+          frontText: 'Team Player',
+          backText: 'Took initiative to meet the entire sales team (nearly 100 people) from new hires to the VP in less than one year. As a result, I was able to more quickly learn the ropes by gathering insights from across the country.',
         },
         {
           id: 'cat2-highlight-3',
-          title: 'Project C',
-          frontText: 'Project C',
-          backText: 'Detailed description of Project C.',
+          title: 'Pressure Cooker',
+          frontText: 'Pressure Cooker',
+          backText: 'Built the plane as it flew, so to speak. I supported hundreds of clients while I learned our key products, successfully supporting the busiest time of year for the business, maintaining >95% of our portfolio in my first few months.',
         },
         {
           id: 'cat2-highlight-4',
-          title: 'Project D',
-          frontText: 'Project D',
-          backText: 'Detailed description of Project D.',
+          title: 'Growth and Expansion Focused',
+          frontText: 'Growth and Expansion Focused',
+          backText: 'Achieve yearly growth target, 3.5% growth (~$60,000), in my first year via diligent support and strategic conversations. In one instance, I leveraged instructional design skills to position our courseware to a skeptical user, resulting in the client upgrading their offering.',
         },
       ],
     },
@@ -120,26 +120,26 @@ export default function WorkSection() {
   const handleCategoryClick = (categoryId: string) => {
     setIsClosing(false)
     setSelectedCategory(categoryId)
-    setFlippedHighlights(new Set())
+    setHoveredHighlights(new Set())
   }
 
   const handleClose = () => {
     setIsClosing(true)
     setTimeout(() => {
       setSelectedCategory(null)
-      setFlippedHighlights(new Set())
+      setHoveredHighlights(new Set())
       setIsClosing(false)
     }, 300) // Match animation duration
   }
 
-  const handleHighlightClick = (highlightId: string) => {
-    setFlippedHighlights((prev) => {
+  const handleHighlightHover = (highlightId: string) => {
+    setHoveredHighlights((prev) => new Set(prev).add(highlightId))
+  }
+
+  const handleHighlightLeave = (highlightId: string) => {
+    setHoveredHighlights((prev) => {
       const newSet = new Set(prev)
-      if (newSet.has(highlightId)) {
-        newSet.delete(highlightId)
-      } else {
-        newSet.add(highlightId)
-      }
+      newSet.delete(highlightId)
       return newSet
     })
   }
@@ -206,18 +206,19 @@ export default function WorkSection() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {selectedCategoryData.highlights.map((highlight) => {
-                    const isFlipped = flippedHighlights.has(highlight.id)
+                    const isHovered = hoveredHighlights.has(highlight.id)
                     return (
-                      <button
+                      <div
                         key={highlight.id}
-                        onClick={() => handleHighlightClick(highlight.id)}
-                        className="relative h-32 bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+                        onMouseEnter={() => handleHighlightHover(highlight.id)}
+                        onMouseLeave={() => handleHighlightLeave(highlight.id)}
+                        className="relative h-32 bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 cursor-pointer"
                       >
                         <div className="relative w-full h-full">
                           {/* Front */}
                           <div
                             className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                              isFlipped ? 'opacity-0' : 'opacity-100'
+                              isHovered ? 'opacity-0' : 'opacity-100'
                             }`}
                           >
                             <span className="text-sm font-semibold text-gray-900 text-center">
@@ -227,7 +228,7 @@ export default function WorkSection() {
                           {/* Back */}
                           <div
                             className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                              isFlipped ? 'opacity-100' : 'opacity-0'
+                              isHovered ? 'opacity-100' : 'opacity-0'
                             }`}
                           >
                             <span className="text-xs text-gray-700 text-center px-2">
@@ -235,7 +236,7 @@ export default function WorkSection() {
                             </span>
                           </div>
                         </div>
-                      </button>
+                      </div>
                     )
                   })}
                 </div>
@@ -256,18 +257,19 @@ export default function WorkSection() {
                 {/* Right Section: Work Highlights */}
                 <div className="grid grid-cols-2 gap-4">
                   {selectedCategoryData.highlights.map((highlight) => {
-                    const isFlipped = flippedHighlights.has(highlight.id)
+                    const isHovered = hoveredHighlights.has(highlight.id)
                     return (
-                      <button
+                      <div
                         key={highlight.id}
-                        onClick={() => handleHighlightClick(highlight.id)}
-                        className="relative h-32 bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
+                        onMouseEnter={() => handleHighlightHover(highlight.id)}
+                        onMouseLeave={() => handleHighlightLeave(highlight.id)}
+                        className="relative h-32 bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 cursor-pointer"
                       >
                         <div className="relative w-full h-full">
                           {/* Front */}
                           <div
                             className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                              isFlipped ? 'opacity-0' : 'opacity-100'
+                              isHovered ? 'opacity-0' : 'opacity-100'
                             }`}
                           >
                             <span className="text-sm font-semibold text-gray-900 text-center">
@@ -277,7 +279,7 @@ export default function WorkSection() {
                           {/* Back */}
                           <div
                             className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                              isFlipped ? 'opacity-100' : 'opacity-0'
+                              isHovered ? 'opacity-100' : 'opacity-0'
                             }`}
                           >
                             <span className="text-xs text-gray-700 text-center px-2">
@@ -285,7 +287,7 @@ export default function WorkSection() {
                             </span>
                           </div>
                         </div>
-                      </button>
+                      </div>
                     )
                   })}
                 </div>
@@ -293,6 +295,64 @@ export default function WorkSection() {
             </div>
           </div>
         )}
+              {/* What do I help Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-12">
+          What I like Working On
+        </h2>
+        <p className="text-gray-600 text-lg mb-8 max-w-3xl">
+          I enjoy a challenge - especially ones people think are "impossible". I have a "roll-up-my-sleeves" attitude to get things done!
+        </p>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
+          {/* Website Design */}
+          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="w-16 h-16 bg-primary-teal rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Website Design</h3>
+            <p className="text-2xl font-bold text-gray-700 mb-1">76 Projects</p>
+          </div>
+
+          {/* Mobile App Design */}
+          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="w-16 h-16 bg-primary-orange rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Mobile App Design</h3>
+            <p className="text-2xl font-bold text-gray-700 mb-1">63 Projects</p>
+          </div>
+
+          {/* Brand Identity */}
+          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="w-16 h-16 bg-red-500 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Brand Identity</h3>
+            <p className="text-2xl font-bold text-gray-700 mb-1">47 Projects</p>
+          </div>
+        </div>
+
+        {/* Statistics */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg">
+            <p className="text-4xl lg:text-5xl font-bold text-primary-teal mb-2">285+</p>
+            <p className="text-gray-600 text-lg">Project Completed</p>
+          </div>
+          <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg">
+            <p className="text-4xl lg:text-5xl font-bold text-primary-orange mb-2">190+</p>
+            <p className="text-gray-600 text-lg">Happy Clients</p>
+          </div>
+        </div>
+      </div>
+
       </div>
     </section>
   )
