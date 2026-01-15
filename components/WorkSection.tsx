@@ -319,7 +319,7 @@ export default function WorkSection() {
 
           {/* Mobile App Design */}
           <div className="bg-white rounded-xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-shadow">
-            <div className="w-16 h-16 bg-primary-orange rounded-lg flex items-center justify-center mb-4">
+            <div className="w-16 h-16 bg-primary-red rounded-lg flex items-center justify-center mb-4">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>

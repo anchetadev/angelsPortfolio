@@ -21,7 +21,7 @@ export default function AboutSection() {
                 <p className="text-sm text-gray-600 uppercase tracking-wide mt-2">Years Experience</p>
               </div>
               <div className="flex items-center gap-3 bg-gray-100 rounded-lg p-4">
-                <div className="w-12 h-12 bg-primary-teal rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-primary-black rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -42,15 +42,14 @@ export default function AboutSection() {
               </div>
             </div>
             {/* Decorative element */}
-            <div className="absolute -bottom-4 -left-4 w-full h-full bg-primary-teal/20 rounded-lg -z-10 blur-xl"></div>
+            <div className="absolute -bottom-4 -left-4 w-full h-full bg-primary-black/20 rounded-lg -z-10 blur-xl"></div>
           </div>
         </div>
       </div>
 
-
       {/* Mission Statement Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-        <div className="bg-primary-teal rounded-2xl p-8 lg:p-12 text-white">
+        <div className="bg-primary-black rounded-2xl p-8 lg:p-12 text-white">
           <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-8 max-w-4xl">
             My mission is to help people learn stuff.  
           </p>
