@@ -7,7 +7,7 @@ export default function AboutSection() {
           {/* Left Column - Text Content */}
           <div className="space-y-6 order-2 lg:order-1">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
-              Hi, I'm <span className="text-primary-teal">Angel</span>
+              Hi, I'm <span className="text-primary-red">Angel</span>
             </h1>
             <p className="text-lg text-gray-600">
               anchetadev@gmail.com
@@ -17,7 +17,7 @@ export default function AboutSection() {
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
               <div>
-                <span className="text-5xl sm:text-6xl font-bold text-primary-teal">8</span>
+                <span className="text-5xl sm:text-6xl font-bold text-primary-red">8</span>
                 <p className="text-sm text-gray-600 uppercase tracking-wide mt-2">Years Experience</p>
               </div>
               <div className="flex items-center gap-3 bg-gray-100 rounded-lg p-4">
@@ -35,7 +35,7 @@ export default function AboutSection() {
           <div className="order-1 lg:order-2 relative">
             <div className="relative z-10">
               {/* Placeholder for profile image */}
-              <div className="w-full h-96 sm:h-[500px] bg-gradient-to-br from-primary-teal to-primary-teal/70 rounded-lg flex items-center justify-center">
+              <div className="w-full h-96 sm:h-[500px] bg-gradient-to-br from-primary-red to-primary-black/70 rounded-lg flex items-center justify-center">
                 <div className="w-64 h-64 sm:w-80 sm:h-80 bg-white rounded-full flex items-center justify-center shadow-2xl">
                   <span className="text-6xl sm:text-8xl">👨‍💻</span>
                 </div>

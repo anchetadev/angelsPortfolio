@@ -25,7 +25,7 @@ export default function Navigation() {
           {/* Logo/Name */}
           <button
             onClick={scrollToTop}
-            className="text-xl font-bold text-gray-900 hover:text-primary-teal transition-colors"
+            className="text-xl font-bold text-gray-900 hover:text-primary-red transition-colors"
           >
             Angel Ancheta
           </button>
@@ -34,25 +34,19 @@ export default function Navigation() {
           <div className="hidden md:flex space-x-8">
             <button
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-primary-teal transition-colors font-medium"
+              className="text-gray-700 hover:text-primary-red transition-colors font-medium"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('work')}
-              className="text-gray-700 hover:text-primary-teal transition-colors font-medium"
+              className="text-gray-700 hover:text-primary-red transition-colors font-medium"
             >
               Work
             </button>
             <button
-              onClick={() => scrollToSection('experience')}
-              className="text-gray-700 hover:text-primary-teal transition-colors font-medium"
-            >
-              Experience
-            </button>
-            <button
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-primary-teal transition-colors font-medium"
+              className="text-gray-700 hover:text-primary-red transition-colors font-medium"
             >
               Contact
             </button>
@@ -91,25 +85,19 @@ export default function Navigation() {
           <div className="px-2 pt-2 pb-3 space-y-1">
             <button
               onClick={() => scrollToSection('about')}
-              className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-teal rounded-md transition-colors"
+              className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-red rounded-md transition-colors"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('work')}
-              className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-teal rounded-md transition-colors"
+              className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-red rounded-md transition-colors"
             >
               Work
             </button>
             <button
-              onClick={() => scrollToSection('experience')}
-              className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-teal rounded-md transition-colors"
-            >
-              Experience
-            </button>
-            <button
               onClick={() => scrollToSection('contact')}
-              className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-teal rounded-md transition-colors"
+              className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-red rounded-md transition-colors"
             >
               Contact
             </button>

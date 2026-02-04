@@ -44,10 +44,20 @@ module.exports = {
           '0%': { transform: 'scale(1)', opacity: '1' },
           '100%': { transform: 'scale(0.95)', opacity: '0' },
         },
+        slideDown: {
+          '0%': { transform: 'translate(-50%, -100%)', opacity: '0' },
+          '100%': { transform: 'translate(-50%, 0)', opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translate(-50%, 0)', opacity: '1' },
+          '100%': { transform: 'translate(-50%, -100%)', opacity: '0' },
+        },
       },
       animation: {
         grow: 'grow 0.3s ease-out forwards',
         shrink: 'shrink 0.3s ease-out forwards',
+        'slide-down': 'slideDown 0.3s ease-out forwards',
+        'slide-up': 'slideUp 0.3s ease-out forwards',
       },
     },
   },
