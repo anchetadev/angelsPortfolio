@@ -163,6 +163,7 @@ const filterTypes = [
 export default function ExperienceSection() {
   const [selectedFilter, setSelectedFilter] = useState<string>('All')
   const [expandedCard, setExpandedCard] = useState<string | null>(null)
+  const [filtersExpanded, setFiltersExpanded] = useState<boolean>(false)
 
   const filteredExperiences = selectedFilter === 'All'
     ? experiences
@@ -170,6 +171,13 @@ export default function ExperienceSection() {
 
   const handleCardClick = (id: string) => {
     setExpandedCard(expandedCard === id ? null : id)
+  }
+
+  const handleFilterClick = (filter: string) => {
+    setSelectedFilter(filter)
+    setExpandedCard(null)
+    // Auto-collapse filters on mobile after selection
+    setFiltersExpanded(false)
   }
 
   return (
@@ -185,9 +193,74 @@ export default function ExperienceSection() {
           </p>
         </div>
 
-        {/* Filter Buttons - Sticky on mobile */}
-        <div className="sticky top-16 z-40 mb-8 bg-white py-4 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 md:static md:py-0 md:z-auto shadow-sm md:shadow-none transition-shadow duration-200">
-          <div className="flex flex-wrap gap-3">
+        {/* Filter Buttons - Sticky on mobile, collapsible */}
+        <div className="sticky top-16 z-40 mb-8 bg-white -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 md:static md:z-auto shadow-sm md:shadow-none transition-shadow duration-200">
+          {/* Mobile: Filter Icon Button (when collapsed) */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setFiltersExpanded(!filtersExpanded)}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+              aria-label="Toggle filters"
+            >
+              <svg 
+                className="w-5 h-5 text-gray-700" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" 
+                />
+              </svg>
+              <span className="font-medium text-gray-700">
+                {selectedFilter === 'All' ? 'All Filters' : selectedFilter}
+              </span>
+              <svg 
+                className={`w-5 h-5 text-gray-700 transition-transform duration-200 ${
+                  filtersExpanded ? 'rotate-180' : ''
+                }`}
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M19 9l-7 7-7-7" 
+                />
+              </svg>
+            </button>
+
+            {/* Mobile: Expandable Filter Buttons */}
+            <div
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                filtersExpanded ? 'max-h-96 opacity-100 mt-3' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="flex flex-wrap gap-3 pb-4">
+                {filterTypes.map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => handleFilterClick(filter)}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                      selectedFilter === filter
+                        ? 'bg-primary-black text-white shadow-lg'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {filter}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: Always visible filters */}
+          <div className="hidden md:flex flex-wrap gap-3 py-4 md:py-0">
             {filterTypes.map((filter) => (
               <button
                 key={filter}
