@@ -31,7 +31,6 @@ module.exports = {
           700: '#333333',
           900: '#000000',
         },
-        // Keep old names for compatibility during transition
         'primary-black': '#000000',
         'primary-red': '#B80000',
       },

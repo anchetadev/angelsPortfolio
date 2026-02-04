@@ -43,6 +43,17 @@ export default function ContactSection() {
     setAlert('loading')
 
     try {
+      // Get access key from environment variable (client-side)
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+
+      if (!accessKey) {
+        console.error('NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set')
+        setAlert('error')
+        setIsSubmitting(false)
+        return
+      }
+
+      // Call Web3Forms directly from client-side
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -50,12 +61,11 @@ export default function ContactSection() {
           'Accept': 'application/json'
         },
         body: JSON.stringify({
-          access_key: 'a491a06b-e51e-46c2-ad98-0091f7e1c5bb',
+          access_key: accessKey,
           subject: `Portfolio Contact: ${formData.subject}`,
           from_name: formData.name,
           from_email: formData.email,
-          message: formData.message,
-          to_email: 'anchetadev@gmail.com'
+          message: formData.message
         })
       })
 
@@ -72,9 +82,12 @@ export default function ContactSection() {
         })
       } else {
         setAlert('error')
+        // Form fields remain unchanged on error
       }
     } catch (error) {
+      console.error('Contact form error:', error)
       setAlert('error')
+      // Form fields remain unchanged on error
     } finally {
       setIsSubmitting(false)
     }
@@ -148,7 +161,7 @@ export default function ContactSection() {
             Get in Touch
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? I'd love to hear from you. 
+            Have a job lead or want to collaborate? I'd love to hear from you. 
             Send me a message and I'll respond as soon as possible.
           </p>
         </div>
