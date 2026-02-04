@@ -45,6 +45,12 @@ export default function Navigation() {
               Work
             </button>
             <button
+              onClick={() => scrollToSection('experience')}
+              className="text-gray-700 hover:text-primary-teal transition-colors font-medium"
+            >
+              Experience
+            </button>
+            <button
               onClick={() => scrollToSection('contact')}
               className="text-gray-700 hover:text-primary-teal transition-colors font-medium"
             >
@@ -94,6 +100,12 @@ export default function Navigation() {
               className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-teal rounded-md transition-colors"
             >
               Work
+            </button>
+            <button
+              onClick={() => scrollToSection('experience')}
+              className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-100 hover:text-primary-teal rounded-md transition-colors"
+            >
+              Experience
             </button>
             <button
               onClick={() => scrollToSection('contact')}
