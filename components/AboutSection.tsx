@@ -36,9 +36,11 @@ export default function AboutSection() {
             <div className="relative z-10">
               {/* Placeholder for profile image */}
               <div className="w-full h-96 sm:h-[500px] bg-gradient-to-br from-primary-red to-primary-black/70 rounded-lg flex items-center justify-center">
-                <div className="w-64 h-64 sm:w-80 sm:h-80 bg-white rounded-full flex items-center justify-center shadow-2xl">
-                  <span className="text-6xl sm:text-8xl">👨‍💻</span>
-                </div>
+                {/* <div className="w-64 h-64 sm:w-80 sm:h-80 bg-white rounded-full flex items-center justify-center shadow-2xl"> */}
+                  {/* <span className="text-6xl sm:text-8xl"> */}
+                    <img className="h-96" src="images\selfie.png" alt="A picture of Angel Ancheta" />
+                    {/* </span> */}
+                {/* </div> */}
               </div>
             </div>
             {/* Decorative element */}
