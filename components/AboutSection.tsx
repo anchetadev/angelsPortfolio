@@ -9,12 +9,8 @@ export default function AboutSection() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
               Hi, I'm <span className="text-primary-red">Angel</span>
             </h1>
-            <p className="text-lg text-gray-600">
-              anchetadev@gmail.com
-            </p>
-            <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed">
-              If it's a challenge, I'm in.
-            </p>
+            <p className="text-lg text-gray-600">anchetadev@gmail.com</p>
+            <p className="text-xl sm:text-2xl text-gray-700 leading-relaxed">If it's a challenge, I'm in.</p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 pt-4">
               <div>
                 <span className="text-5xl sm:text-6xl font-bold text-primary-red">8</span>
@@ -34,13 +30,8 @@ export default function AboutSection() {
           {/* Right Column - Profile Image */}
           <div className="order-1 lg:order-2 relative">
             <div className="relative z-10">
-              {/* Placeholder for profile image */}
               <div className="w-full h-96 sm:h-[500px] bg-gradient-to-br from-primary-red to-primary-black/70 rounded-lg flex items-center justify-center">
-                {/* <div className="w-64 h-64 sm:w-80 sm:h-80 bg-white rounded-full flex items-center justify-center shadow-2xl"> */}
-                  {/* <span className="text-6xl sm:text-8xl"> */}
                     <img className="h-96" src="images\selfie.png" alt="A picture of Angel Ancheta" />
-                    {/* </span> */}
-                {/* </div> */}
               </div>
             </div>
             {/* Decorative element */}
